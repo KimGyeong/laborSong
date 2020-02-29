@@ -39,4 +39,3 @@ function shuffle(songs) {
         songs[j] = x;
     }
 }
-
