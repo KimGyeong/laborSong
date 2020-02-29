@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/hwangbo/woowaBirthday#readme",
   "dependencies": {
-    "botkit": "^0.6.21"
+    "botkit": "^0.6.21",
+    "dotenv": "^8.2.0"
   }
 }

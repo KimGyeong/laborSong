@@ -1,5 +1,5 @@
+require('dotenv').config();
 const botkit = require('botkit');
-const keys = require('./keys');
 
 const controller = botkit.slackbot({
     debug: false,
@@ -7,7 +7,7 @@ const controller = botkit.slackbot({
 });
 
 controller.spawn({
-    token: keys.botAPIToken
+    token: process.env.BOT_TOKEN
 }).startRTM();
 
 const botScope = [
