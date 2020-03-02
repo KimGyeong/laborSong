@@ -31,7 +31,6 @@ module.exports = function (app, Song) {
             var web = new WebClient(token);
             var rtm = new RtmClient(token, { logLevel: 'error' });
             rtm.start();
-
             var RTM_EVENTS = require('slack-client').RTM_EVENTS;
 
             rtm.on(RTM_EVENTS.MESSAGE, function (message) {
@@ -91,4 +90,24 @@ module.exports = function (app, Song) {
             });
         });
     });
+
+    app.post('/songs/add', function(req, res){
+
+        var song = new AddedSong();
+        song.link = req.body.link;
+        song.genre = req.body.genre;
+        song.review = req.body.review;
+    
+        song.save(function(err){
+            if(err){
+                console.error(err);
+                res.json({result: 0});
+                return;
+            }
+    
+            res.json({result: 1});
+    
+        });
+    });
+    
 };
