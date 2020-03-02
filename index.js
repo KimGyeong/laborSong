@@ -1,30 +1,4 @@
 require('dotenv').config();
-// const botkit = require('botkit');
-
-// const controller = botkit.slackbot({
-//     debug: false,
-//     log: true
-// });
-
-// controller.spawn({
-//     token: process.env.BOT_TOKEN
-// }).startRTM();
-
-// const botScope = [
-//     'direct_message',
-//     'direct_mention',
-//     'mention',
-//     'ambient'
-// ];
-
-// controller.hears('도움', botScope, (bot, message) => {
-//     bot.reply(message, '안녕하세요')
-// })
-
-// controller.hears('노래', botScope, (bot, message) => {
-//     shuffle(songs);
-//     bot.reply(message, songs[0]);
-// });
 
 let songs = ['https://www.youtube.com/playlist?list=PLl0rRg6gLsHYO_ys6ULX9uxRIwMa6_q-a',
     'https://www.youtube.com/watch?v=o_UUYwymh30',
@@ -50,6 +24,7 @@ rtm.start();
 
 var RTM_EVENTS = require('slack-client').RTM_EVENTS;
 
+// rtm 모듈이 메세지를 받았을 때 반응
 rtm.on(RTM_EVENTS.MESSAGE, function (message) {
     var channel = message.channel;
     var user = message.user;
