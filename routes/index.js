@@ -67,7 +67,7 @@ module.exports = function (app, Song) {
                 }
             }
 
-            const BOT_TOKEN = 'xoxb-952248750261-977095868839-jwSpU1JFMYHn38H6xEbbazh2';
+            const BOT_TOKEN = process.env.BOT_TOKEN;
 
             var RtmClient = require('slack-client').RtmClient;
             var WebClient = require('slack-client').WebClient;
