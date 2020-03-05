@@ -42,7 +42,33 @@ app.post(`/actions`, (req, res) => {
     const {token, trigger_id, user, actions, type, channel} = JSON.parse(req.body.payload);
     if (actions && actions[0].action_id.match(`add_song`)) {
         addSongOpenModal(trigger_id);
-    } else if (actions && actions[0].action_id.match('give_song')) {
+    }else if (actions && actions[0].action_id.match(`add_song`) && type === 'view_submission') {
+        console.log(JSON.parse(req.body.payload).toString());
+        const link = JSON.parse(req.body.payload)
+                                            .view
+                                            .state
+                                            .values
+                                            .add_song_link_block
+                                            .add_song_link_value
+                                            .value;
+        const one_sentence_review = JSON.parse(req.body.payload)
+                                                        .view.state
+                                                        .values
+                                                        .add_one_sentence_review_block
+                                                        .add_one_sentence_review_value
+                                                        .value;
+        const genre = JSON.parse(req.body.payload)
+                                            .view
+                                            .state
+                                            .values
+                                            .add_song_genre_selcet_block
+                                            .song_genre_value
+                                            .selected_option
+                                            .value;
+        console.log(link);
+        console.log(one_sentence_review);
+        console.log(genre);
+    }else if (actions && actions[0].action_id.match('give_song')) {
         giveSongOpenModal(trigger_id);
     } else if (type === 'view_submission') {
         const genre = JSON.parse(req.body.payload).view.state.values.songSelect.songValue.selected_option.value;
@@ -117,7 +143,9 @@ const addSongOpenModal = async (trigger_id) => {
         "blocks": [
             {
                 "type": "input",
+                "block_id": "add_song_link_block",
                 "element": {
+                    "action_id": "add_song_link_value",
                     "type": "plain_text_input"
                 },
                 "label": {
@@ -128,7 +156,9 @@ const addSongOpenModal = async (trigger_id) => {
             },
             {
                 "type": "input",
+                "block_id": "add_one_sentence_review_block",
                 "element": {
+                    "action_id": "add_one_sentence_review_value",
                     "type": "plain_text_input"
                 },
                 "label": {
@@ -139,8 +169,10 @@ const addSongOpenModal = async (trigger_id) => {
             },
             {
                 "type": "input",
+                "block_id": "add_song_genre_selcet_block",
                 "element": {
                     "type": "static_select",
+                    "action_id": "song_genre_value",
                     "placeholder": {
                         "type": "plain_text",
                         "text": "장르",
