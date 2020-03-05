@@ -68,6 +68,7 @@ app.post(`/actions`, (req, res) => {
         console.log(link);
         console.log(one_sentence_review);
         console.log(genre);
+        res.sendAddSongRequest(link, one_sentence_review, genre);
     }else if (actions && actions[0].action_id.match('give_song')) {
         giveSongOpenModal(trigger_id);
     } else if (type === 'view_submission') {
@@ -303,3 +304,23 @@ const send = async (channel, genre) => {
                 songList[j] = x;
             }
         }
+
+        shuffle(songList);
+
+        text = songList[0];
+
+        const args = {
+            token: `xoxb-952248750261-966576957937-pcmQT7FClIeDMbddQttpfi69`,
+            channel: channel,
+            text: text
+        };
+
+        const result = axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
+
+        try {
+            console.log(result.data);
+        } catch (e) {
+            console.log(e);
+        }
+    });
+};
