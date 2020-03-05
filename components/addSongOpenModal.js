@@ -22,7 +22,9 @@ const addSongOpenModal = async (trigger_id, token) => {
         "blocks": [
             {
                 "type": "input",
+                "block_id": "add_song_link_block",
                 "element": {
+                    "action_id": "add_song_link_value",
                     "type": "plain_text_input"
                 },
                 "label": {
@@ -33,7 +35,9 @@ const addSongOpenModal = async (trigger_id, token) => {
             },
             {
                 "type": "input",
+                "block_id": "add_one_sentence_review_block",
                 "element": {
+                    "action_id": "add_one_sentence_review_value",
                     "type": "plain_text_input"
                 },
                 "label": {
@@ -44,8 +48,10 @@ const addSongOpenModal = async (trigger_id, token) => {
             },
             {
                 "type": "input",
+                "block_id": "add_song_genre_selcet_block",
                 "element": {
                     "type": "static_select",
+                    "action_id": "song_genre_value",
                     "placeholder": {
                         "type": "plain_text",
                         "text": "장르",
