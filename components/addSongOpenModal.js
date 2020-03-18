@@ -25,7 +25,8 @@ const addSongOpenModal = async (trigger_id, token) => {
                 "block_id": "add_song_link_block",
                 "element": {
                     "action_id": "add_song_link_value",
-                    "type": "plain_text_input"
+                    "type": "plain_text_input",
+                    "hint" : "링크를 입력해주세요."
                 },
                 "label": {
                     "type": "plain_text",
