@@ -26,7 +26,7 @@ const actions = router.post(`/`, (req, res) => {
             .selected_option
             .value;
 
-        sendMessage("테스트채널", genre, token);
+        sendMessage(PAYLOAD_JSON.channel, genre, token);
         res.send({response_action: "clear"});
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_song_link_block' && type === 'view_submission') {
         const link = PAYLOAD_JSON
