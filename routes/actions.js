@@ -50,8 +50,23 @@ const actions = router.post(`/`, (req, res) => {
             .song_genre_value
             .selected_option
             .value;
-
-        sendAddSongRequest(link, one_sentence_review, genre);
+        if (link === 1) {
+            var error = {
+                "errors": [
+                    {
+                        "name": "email_address",
+                        "error": "Sorry, this email domain is not authorized!"
+                    },
+                    {
+                        "name": "username",
+                        "error": "Uh-oh. This username has been taken!"
+                    }
+                ]
+            };
+            sendAddSongRequest(error);
+        } else {
+            sendAddSongRequest(link, one_sentence_review, genre);
+        }
         res.send({response_action: "clear"});
     }
 });
