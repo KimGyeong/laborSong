@@ -6,11 +6,13 @@ const addSongOpenModal = require('../components/addSongOpenModal');
 const giveSongOpenModal = require('../components/giveSongOpenModal');
 const sendMessage = require('../components/sendMessage');
 const sendAddSongRequest = require('../components/sendAddSongRequest');
+
 const token = process.env.BOT_TOKEN;
 
 const actions = router.post(`/`, (req, res) => {
     const PAYLOAD_JSON = JSON.parse(req.body.payload);
     const {trigger_id, user, actions, type, channel} = PAYLOAD_JSON;
+    const urlRegex = new RegExp(/(http(s)?:\/\/)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}/gi);
 
     if (actions && actions[0].action_id.match(`add_song`)) {
         addSongOpenModal(trigger_id, token);
@@ -50,24 +52,19 @@ const actions = router.post(`/`, (req, res) => {
             .song_genre_value
             .selected_option
             .value;
-        if (link === 1) {
-            var error = {
-                "errors": [
-                    {
-                        "name": "email_address",
-                        "error": "Sorry, this email domain is not authorized!"
-                    },
-                    {
-                        "name": "username",
-                        "error": "Uh-oh. This username has been taken!"
-                    }
-                ]
+        if (!urlRegex.test(link)) {
+            const modal = {
+                "response_action": "errors",
+                "errors": {
+                    "add_song_link_block": "잘못된 링크입니다."
+                }
+
             };
-            sendAddSongRequest(error);
+            res.send(modal);
         } else {
             sendAddSongRequest(link, one_sentence_review, genre);
+            res.send({response_action: "clear"});
         }
-        res.send({response_action: "clear"});
     }
 });
 
