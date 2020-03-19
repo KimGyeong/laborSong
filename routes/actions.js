@@ -6,6 +6,7 @@ const addSongOpenModal = require('../components/addSongOpenModal');
 const giveSongOpenModal = require('../components/giveSongOpenModal');
 const sendMessage = require('../components/sendMessage');
 const sendAddSongRequest = require('../components/sendAddSongRequest');
+const categoryCheck = require('../utils/youtubeApi');
 
 const token = process.env.BOT_TOKEN;
 
@@ -27,8 +28,8 @@ const actions = router.post(`/`, (req, res) => {
             .songValue
             .selected_option
             .value;
-
-        sendMessage(PAYLOAD_JSON.channel, genre, token);
+        console.log(PAYLOAD_JSON);
+        sendMessage("테스트채널", genre, token);
         res.send({response_action: "clear"});
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_song_link_block' && type === 'view_submission') {
         const link = PAYLOAD_JSON
@@ -52,7 +53,8 @@ const actions = router.post(`/`, (req, res) => {
             .song_genre_value
             .selected_option
             .value;
-        if (!urlRegex.test(link)) {
+            console.log(categoryCheck(link.toString().substring(32)));
+        if (!urlRegex.test(link) || categoryCheck(link.toString().substring(32))) {
             const modal = {
                 "response_action": "errors",
                 "errors": {
