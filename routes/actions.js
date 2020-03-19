@@ -53,20 +53,23 @@ const actions = router.post(`/`, (req, res) => {
             .song_genre_value
             .selected_option
             .value;
-            console.log(categoryCheck(link.toString().substring(32)));
-        if (!urlRegex.test(link) || categoryCheck(link.toString().substring(32))) {
-            const modal = {
-                "response_action": "errors",
-                "errors": {
-                    "add_song_link_block": "잘못된 링크입니다."
-                }
 
-            };
-            res.send(modal);
-        } else {
-            sendAddSongRequest(link, one_sentence_review, genre);
-            res.send({response_action: "clear"});
-        }
+        categoryCheck(link.toString().substring(32))
+            .then(function (result) {
+                if (!urlRegex.test(link) || result) {
+                    const modal = {
+                        "response_action": "errors",
+                        "errors": {
+                            "add_song_link_block": "잘못된 링크입니다."
+                        }
+
+                    };
+                    res.send(modal);
+                } else {
+                    sendAddSongRequest(link, one_sentence_review, genre);
+                    res.send({response_action: "clear"});
+                }
+            });
     }
 });
 
