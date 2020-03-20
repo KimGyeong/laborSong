@@ -12,7 +12,7 @@ const token = process.env.BOT_TOKEN;
 
 const actions = router.post(`/`, (req, res) => {
     const PAYLOAD_JSON = JSON.parse(req.body.payload);
-    const {trigger_id, user, actions, type, channel} = PAYLOAD_JSON;
+    const {trigger_id, user, actions, type} = PAYLOAD_JSON;
     const urlRegex = new RegExp(/(http(s)?:\/\/)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}/gi);
 
     if (actions && actions[0].action_id.match(`add_song`)) {
@@ -28,8 +28,8 @@ const actions = router.post(`/`, (req, res) => {
             .songValue
             .selected_option
             .value;
-        console.log(PAYLOAD_JSON);
-        sendMessage("테스트채널", genre, token);
+
+        sendMessage(user.id, genre, token);
         res.send({response_action: "clear"});
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_song_link_block' && type === 'view_submission') {
         const link = PAYLOAD_JSON
@@ -62,7 +62,6 @@ const actions = router.post(`/`, (req, res) => {
                         "errors": {
                             "add_song_link_block": "잘못된 링크입니다."
                         }
-
                     };
                     res.send(modal);
                 } else {
