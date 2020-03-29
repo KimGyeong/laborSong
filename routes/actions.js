@@ -54,7 +54,15 @@ const actions = router.post(`/`, (req, res) => {
             .selected_option
             .value;
 
-        categoryCheck(link.toString().substring(32))
+        let youtubeId = "";
+        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+        var matchs = url.match(regExp);
+
+        if (matchs) {
+            youtubeId += matchs[7];
+        }
+
+        categoryCheck(youtubeId)
             .then(function (result) {
                 if (!urlRegex.test(link) || result) {
                     const modal = {
