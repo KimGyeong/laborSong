@@ -50,7 +50,7 @@ const addSongOpenModal = async (trigger_id, token) => {
                 },
                 "label": {
                     "type": "plain_text",
-                    "text": "한줄평",
+                    "text": "제목",
                     "emoji": true
                 }
             },
@@ -62,31 +62,47 @@ const addSongOpenModal = async (trigger_id, token) => {
                     "action_id": "study_level_value",
                     "placeholder": {
                         "type": "plain_text",
-                        "text": "장르를 선택해주세요.",
+                        "text": "레벨",
                         "emoji": true
                     },
                     "options": [
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "*신나는 곡*",
+                                "text": "*Level 1*",
                                 "emoji": true
                             },
-                            "value": "exciting"
+                            "value": "level1"
                         },
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "*차분한곡*",
+                                "text": "*Level 2*",
                                 "emoji": true
                             },
-                            "value": "quiet"
+                            "value": "level2"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "*Level 3*",
+                                "emoji": true
+                            },
+                            "value": "level3"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "*Level 4*",
+                                "emoji": true
+                            },
+                            "value": "level4"
                         }
                     ]
                 },
                 "label": {
                     "type": "plain_text",
-                    "text": "장르",
+                    "text": "레벨",
                     "emoji": true
                 }
             }
