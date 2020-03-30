@@ -14,6 +14,10 @@ const events = router.post('/', (req, res) => {
         appMentionEventBlocks(req.body.event.channel, token);
         res.json('');
     }
+    if(req.body.event.type === 'app_home_opened'){
+        appMentionEventBlocks(req.body.event.channel, token);
+        res.json('');
+    }
 });
 
 module.exports = events;

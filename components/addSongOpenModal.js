@@ -25,7 +25,11 @@ const addSongOpenModal = async (trigger_id, token) => {
                 "block_id": "add_song_link_block",
                 "element": {
                     "action_id": "add_song_link_value",
-                    "type": "plain_text_input"
+                    "type": "plain_text_input",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "링크를 입력해주세요."
+                    }
                 },
                 "label": {
                     "type": "plain_text",
@@ -38,7 +42,11 @@ const addSongOpenModal = async (trigger_id, token) => {
                 "block_id": "add_one_sentence_review_block",
                 "element": {
                     "action_id": "add_one_sentence_review_value",
-                    "type": "plain_text_input"
+                    "type": "plain_text_input",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "정성을 담아서 입력해주세요."
+                    }
                 },
                 "label": {
                     "type": "plain_text",
@@ -54,7 +62,7 @@ const addSongOpenModal = async (trigger_id, token) => {
                     "action_id": "song_genre_value",
                     "placeholder": {
                         "type": "plain_text",
-                        "text": "장르",
+                        "text": "장르를 선택해주세요.",
                         "emoji": true
                     },
                     "options": [

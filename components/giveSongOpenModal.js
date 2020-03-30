@@ -28,7 +28,7 @@ const giveSongOpenModal = async (trigger_id, token) => {
                     "action_id": "songValue",
                     "placeholder": {
                         "type": "plain_text",
-                        "text": "Select an item",
+                        "text": "장르를 선택해주세요.",
                         "emoji": true
                     },
                     "options": [

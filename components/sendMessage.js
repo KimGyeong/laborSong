@@ -3,11 +3,11 @@ const qs = require('qs');
 
 const song = require('../models/song');
 
-const sendMessage = async (channel, genre, token) => {
+const sendMessage = async (userId, genre, token) => {
     var songList = [];
     song.find({genre: genre.toString()}, {_id: false, genre: false}, function (err, songs) {
         for (let value in songs) {
-            songList.push("링크 : " + songs[value].link + "\n" + "추천이유 : " + songs[value].review);
+            songList.push("> 링크 : " + songs[value].link + "\n" + "> 추천이유 : " + songs[value].review);
         }
 
         function shuffle(songList) {
@@ -26,17 +26,12 @@ const sendMessage = async (channel, genre, token) => {
 
         const args = {
             token: token,
-            channel: channel,
-            text: text
+            channel: userId,
+            text: text,
+            as_user: true
         };
 
         const result = axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
-
-        try {
-            console.log(result.data);
-        } catch (e) {
-            console.log(e);
-        }
     });
 };
 

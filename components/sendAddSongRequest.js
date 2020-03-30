@@ -9,7 +9,6 @@ const sendAddSongRequest = async (link, one_sentence_review, genre) => {
     song.save(function (err) {
         if (err) {
             console.error(err);
-
         }
     });
 };
