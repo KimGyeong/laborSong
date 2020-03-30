@@ -94,8 +94,7 @@ const actions = router.post(`/`, (req, res) => {
         // TODO : type인자 확인
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_study_block' && type === 'view_submission') {
         console.log(PAYLOAD_JSON
-            .view
-            .state);
+            .view);
         const level = PAYLOAD_JSON
             .view
             .state
