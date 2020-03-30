@@ -1,7 +1,7 @@
 const axios = require('axios');
 const qs = require('qs');
 
-const appMentionEventBlocks = async (channel, token) => {
+const studyAppMentionEventBlocks = async (channel, token) => {
     const modal = [
         {
             "type": "section",
@@ -46,4 +46,4 @@ const appMentionEventBlocks = async (channel, token) => {
     const result = await axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
 };
 
-module.exports = appMentionEventBlocks;
+module.exports = studyAppMentionEventBlocks;
