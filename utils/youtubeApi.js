@@ -13,10 +13,12 @@ const categoryCheck = function (linkId, callback) {
         url += option + "=" + optionParams[option] + "&";
     }
 
+    console.log(linkId);
+
     return new Promise(resolve => request(url, function (err, res, body) {
         //json형식을 서버로 부터 받음
         var data = JSON.parse(body).items;
-
+        console.log(data);
         if (data[0].snippet.categoryId != 10) {
             console.log('잘못된 링크입니다.');
             resolve(true);
