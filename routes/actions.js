@@ -96,8 +96,7 @@ const actions = router.post(`/`, (req, res) => {
         console.log(PAYLOAD_JSON
             .view
             .state
-            .values
-            .add_study_level_selcet_block);
+            .values);
         const level = PAYLOAD_JSON
             .view
             .state
