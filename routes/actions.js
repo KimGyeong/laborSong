@@ -95,8 +95,7 @@ const actions = router.post(`/`, (req, res) => {
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_study_block' && type === 'view_submission') {
         console.log(PAYLOAD_JSON
             .view
-            .state
-            .values);
+            .state);
         const level = PAYLOAD_JSON
             .view
             .state
