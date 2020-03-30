@@ -55,8 +55,9 @@ const actions = router.post(`/`, (req, res) => {
             .value;
 
         let youtubeId = "";
-        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-        var matchs = url.match(regExp);
+
+        var regExp = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
+        var matchs = link.match(regExp);
 
         if (matchs) {
             youtubeId += matchs[7];
