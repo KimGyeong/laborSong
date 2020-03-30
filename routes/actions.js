@@ -115,8 +115,8 @@ const actions = router.post(`/`, (req, res) => {
             .view
             .state
             .values
-            .add_study_link_value_block
-            .add_one_sentence_review_value
+            .add_study_block
+            .add_song_link_value
             .value;
 
         sendAddStudyRequest(level, title, link);

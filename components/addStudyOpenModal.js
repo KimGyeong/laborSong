@@ -22,53 +22,18 @@ const addSongOpenModal = async (trigger_id, token) => {
         "blocks": [
             {
                 "type": "input",
-                "block_id": "add_study_level_selcet_block",
+                "block_id": "add_study_block",
                 "element": {
-                    "type": "static_select",
-                    "action_id": "study_level_value",
+                    "action_id": "add_song_link_value",
+                    "type": "plain_text_input",
                     "placeholder": {
                         "type": "plain_text",
-                        "text": "레벨을 선택해주세요.",
-                        "emoji": true
-                    },
-                    "options": [
-                        {
-                            "text": {
-                                "type": "plain_text",
-                                "text": "level1",
-                                "emoji": true
-                            },
-                            "value": "level1"
-                        },
-                        {
-                            "text": {
-                                "type": "plain_text",
-                                "text": "level2",
-                                "emoji": true
-                            },
-                            "value": "level2"
-                        },
-                        {
-                            "text": {
-                                "type": "plain_text",
-                                "text": "level3",
-                                "emoji": true
-                            },
-                            "value": "level3"
-                        },
-                        {
-                            "text": {
-                                "type": "plain_text",
-                                "text": "level4",
-                                "emoji": true
-                            },
-                            "value": "level4"
-                        }
-                    ]
+                        "text": "링크를 입력해주세요."
+                    }
                 },
                 "label": {
                     "type": "plain_text",
-                    "text": "장르",
+                    "text": "링크",
                     "emoji": true
                 }
             },
@@ -77,25 +42,51 @@ const addSongOpenModal = async (trigger_id, token) => {
                 "block_id": "add_study_title_value_block",
                 "element": {
                     "action_id": "add_study_title_value",
-                    "type": "plain_text_input"
-
+                    "type": "plain_text_input",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "정성을 담아서 입력해주세요."
+                    }
                 },
                 "label": {
                     "type": "plain_text",
-                    "text": "알맞은 제목을 붙여주세요!",
+                    "text": "한줄평",
                     "emoji": true
                 }
             },
             {
                 "type": "input",
-                "block_id": "add_study_link_value_block",
+                "block_id": "add_study_level_selcet_block",
                 "element": {
-                    "action_id": "add_study_link_value",
-                    "type": "plain_text_input"
+                    "type": "static_select",
+                    "action_id": "study_level_value",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "장르를 선택해주세요.",
+                        "emoji": true
+                    },
+                    "options": [
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "*신나는 곡*",
+                                "emoji": true
+                            },
+                            "value": "exciting"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "*차분한곡*",
+                                "emoji": true
+                            },
+                            "value": "quiet"
+                        }
+                    ]
                 },
                 "label": {
                     "type": "plain_text",
-                    "text": "링크를 적어주세요!",
+                    "text": "장르",
                     "emoji": true
                 }
             }
