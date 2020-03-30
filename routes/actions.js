@@ -54,14 +54,7 @@ const actions = router.post(`/`, (req, res) => {
             .selected_option
             .value;
 
-        let youtubeId = "";
-
-        var regExp = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
-        var matchs = link.match(regExp);
-
-        if (matchs) {
-            youtubeId += matchs[7];
-        }
+        let youtubeId = link.toString().substring(32);
 
         categoryCheck(youtubeId)
             .then(function (result) {
