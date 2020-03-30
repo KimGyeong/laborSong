@@ -30,7 +30,7 @@ const addSongOpenModal = async (trigger_id, token) => {
                 }
             },
             {
-                "type": "section",
+                "type": "input",
                 "block_id": "add_study_level_selcet_block",
                 "text": {
                     "type": "mrkdwn",
