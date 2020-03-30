@@ -85,6 +85,15 @@ const actions = router.post(`/`, (req, res) => {
         console.log("state : " + PAYLOAD_JSON
             .view
             .state);
+        console.log("values : " + PAYLOAD_JSON
+            .view
+            .state
+            .values);
+        console.log("blocks : " + PAYLOAD_JSON
+            .view
+            .state
+            .values
+            .study_select_block);
         const level = PAYLOAD_JSON
             .view
             .state
