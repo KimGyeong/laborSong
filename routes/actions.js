@@ -80,6 +80,7 @@ const actions = router.post(`/`, (req, res) => {
                 }
             });
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'study_select_block' && type === 'view_submission') {
+        console.log("PAYLOAD_JSON: " + PAYLOAD_JSON);
         console.log("view: " + PAYLOAD_JSON
             .view);
         console.log("state : " + PAYLOAD_JSON
@@ -94,6 +95,19 @@ const actions = router.post(`/`, (req, res) => {
             .state
             .values
             .study_select_block);
+        console.log("study_select_value : " + PAYLOAD_JSON
+            .view
+            .state
+            .values
+            .study_select_block
+            .study_select_value);
+        console.log("selected_option : " + PAYLOAD_JSON
+            .view
+            .state
+            .values
+            .study_select_block
+            .study_select_value
+            .selected_option);
         const level = PAYLOAD_JSON
             .view
             .state
