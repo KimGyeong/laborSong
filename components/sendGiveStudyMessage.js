@@ -5,7 +5,7 @@ const study = require('../models/study');
 
 const sendGiveStudyMessage = async (channel, level, token) => {
     let tempResult = "";
-    study.find({level: level.toString()}, {_id:false, link: false}, function (err, studys) {
+    study.find({level: level.toString()}, {_id: false, link: false}, function (err, studys) {
         for (let value in studys) {
             tempResult +=
                 ("레벨 : "
