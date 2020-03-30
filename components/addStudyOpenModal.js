@@ -51,7 +51,7 @@ const addSongOpenModal = async (trigger_id, token) => {
                                 "text": "레벨 1",
                                 "emoji": true
                             },
-                            "value": "레벨 1"
+                            "value": "level1"
                         },
                         {
                             "text": {
@@ -59,7 +59,7 @@ const addSongOpenModal = async (trigger_id, token) => {
                                 "text": "레벨 2",
                                 "emoji": true
                             },
-                            "value": "레벨 2"
+                            "value": "level2"
                         },
                         {
                             "text": {
@@ -67,7 +67,7 @@ const addSongOpenModal = async (trigger_id, token) => {
                                 "text": "레벨 3",
                                 "emoji": true
                             },
-                            "value": "레벨 3"
+                            "value": "level3"
                         },
                         {
                             "text": {
@@ -75,7 +75,7 @@ const addSongOpenModal = async (trigger_id, token) => {
                                 "text": "레벨 4",
                                 "emoji": true
                             },
-                            "value": "레벨 4"
+                            "value": "level4"
                         }
                     ]
                 }
