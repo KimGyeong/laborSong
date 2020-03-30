@@ -23,6 +23,10 @@ const actions = router.post(`/`, (req, res) => {
         addSongOpenModal(trigger_id, token);
     } else if (actions && actions[0].action_id.match('give_song')) {
         giveSongOpenModal(trigger_id, token);
+    } else if (actions && actions[0].action_id.match(`add_study`)) {
+        addStudyOpenModal(trigger_id, token);
+    } else if (actions && actions[0].action_id.match('give_study')) {
+        giveStudyOpenModal(trigger_id, token);
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'songSelect' && type === 'view_submission') {
         const genre = PAYLOAD_JSON
             .view
@@ -75,10 +79,6 @@ const actions = router.post(`/`, (req, res) => {
                     res.send({response_action: "clear"});
                 }
             });
-    } else if (actions && actions[0].action_id.match(`add_study`)) {
-        addStudyOpenModal(trigger_id, token);
-    } else if (actions && actions[0].action_id.match('give_study')) {
-        giveStudyOpenModal(trigger_id, token);
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'study_select_block' && type === 'view_submission') {
         const level = PAYLOAD_JSON
             .view
