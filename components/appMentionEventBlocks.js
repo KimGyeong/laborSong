@@ -33,6 +33,25 @@ const appMentionEventBlocks = async (channel, token) => {
                             "text": "노래 추천 받기",
                             "emoji": true
                         },
+                    },
+                    {
+                        "type": "button",
+                        "action_id": "add_study",
+                        "text": {
+                            "type": "plain_text",
+                            "text": "스터디 자료 추가하기",
+                            "emoji": true
+                        },
+                        "value": "click_me_123",
+                    },
+                    {
+                        "type": "button",
+                        "action_id": "give_study",
+                        "text": {
+                            "type": "plain_text",
+                            "text": "스터디 자료 추천받기",
+                            "emoji": true
+                        },
                     }
                 ]
         }
