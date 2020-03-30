@@ -80,10 +80,11 @@ const actions = router.post(`/`, (req, res) => {
                 }
             });
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'study_select_block' && type === 'view_submission') {
-        console.log(PAYLOAD_JSON
+        console.log("view: " + PAYLOAD_JSON
+            .view);
+        console.log("state : " + PAYLOAD_JSON
             .view
-            .state
-            .values);
+            .state);
         const level = PAYLOAD_JSON
             .view
             .state
