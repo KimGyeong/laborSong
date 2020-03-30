@@ -80,6 +80,10 @@ const actions = router.post(`/`, (req, res) => {
                 }
             });
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'study_select_block' && type === 'view_submission') {
+        console.log(PAYLOAD_JSON
+            .view
+            .state
+            .values);
         const level = PAYLOAD_JSON
             .view
             .state
@@ -93,10 +97,6 @@ const actions = router.post(`/`, (req, res) => {
         res.send({response_action: "clear"});
         // TODO : type인자 확인
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_study_block' && type === 'view_submission') {
-        console.log(PAYLOAD_JSON
-            .view
-            .state
-            .values);
         const level = PAYLOAD_JSON
             .view
             .state
