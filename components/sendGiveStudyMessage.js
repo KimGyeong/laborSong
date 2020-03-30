@@ -1,7 +1,7 @@
 const axios = require('axios');
 const qs = require('qs');
 
-const study = require('../models/study');
+const studies = require('../models/study');
 
 const sendGiveStudyMessage = async (channel, level, token) => {
     let tempResult = "";
