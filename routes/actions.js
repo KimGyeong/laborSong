@@ -81,15 +81,42 @@ const actions = router.post(`/`, (req, res) => {
             });
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'study_select_block' && type === 'view_submission') {
         console.log("PAYLOAD_JSON: " + JSON.stringify(PAYLOAD_JSON));
-
-        const level = PAYLOAD_JSON
+        console.log("view: " + JSON.stringify(PAYLOAD_JSON
+            .view));
+        console.log("state : " + JSON.stringify(PAYLOAD_JSON
+            .view
+            .state));
+        console.log("values : " + JSON.stringify(PAYLOAD_JSON
+            .view
+            .state
+            .values));
+        console.log("blocks : " + JSON.stringify(PAYLOAD_JSON
+            .view
+            .state
+            .values
+            .study_select_block));
+        console.log("study_select_value : " + JSON.stringify(PAYLOAD_JSON
+            .view
+            .state
+            .values
+            .study_select_block
+            .study_select_value));
+        console.log("selected_option : " + JSON.stringify(PAYLOAD_JSON
             .view
             .state
             .values
             .study_select_block
             .study_select_value
             .selected_option
-            .value;
+            .value));
+        const level = JSON.stringify(PAYLOAD_JSON
+            .view
+            .state
+            .values
+            .study_select_block
+            .study_select_value
+            .selected_option
+            .value);
 
         sendGiveStudyMessage("테스트채널", level, token);
         res.send({response_action: "clear"});
