@@ -29,26 +29,23 @@ const addSongOpenModal = async (trigger_id, token) => {
                     "emoji": true
                 }
             },
+            ,
             {
                 "type": "input",
                 "block_id": "add_study_level_selcet_block",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": "어떤 레벨에 어울리는 자료인지 알려주세요!"
-                },
-                "accessory": {
+                "element": {
                     "type": "static_select",
                     "action_id": "study_level_value",
                     "placeholder": {
                         "type": "plain_text",
-                        "text": "레벨",
+                        "text": "레벨을 선택해주세요.",
                         "emoji": true
                     },
                     "options": [
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "레벨 1",
+                                "text": "level1",
                                 "emoji": true
                             },
                             "value": "level1"
@@ -56,7 +53,7 @@ const addSongOpenModal = async (trigger_id, token) => {
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "레벨 2",
+                                "text": "level2",
                                 "emoji": true
                             },
                             "value": "level2"
@@ -64,7 +61,7 @@ const addSongOpenModal = async (trigger_id, token) => {
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "레벨 3",
+                                "text": "level3",
                                 "emoji": true
                             },
                             "value": "level3"
@@ -72,12 +69,17 @@ const addSongOpenModal = async (trigger_id, token) => {
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "레벨 4",
+                                "text": "level4",
                                 "emoji": true
                             },
                             "value": "level4"
                         }
                     ]
+                },
+                "label": {
+                    "type": "plain_text",
+                    "text": "장르",
+                    "emoji": true
                 }
             },
             {
