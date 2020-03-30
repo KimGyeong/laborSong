@@ -21,16 +21,6 @@ const addSongOpenModal = async (trigger_id, token) => {
         },
         "blocks": [
             {
-                "type": "section",
-                "block_id": "add_study_block",
-                "text": {
-                    "type": "plain_text",
-                    "text": "안녕하세요 공부 괴물입니다! ",
-                    "emoji": true
-                }
-            },
-            ,
-            {
                 "type": "input",
                 "block_id": "add_study_level_selcet_block",
                 "element": {
