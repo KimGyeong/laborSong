@@ -7,8 +7,10 @@ const sendGiveStudyMessage = async (channel, level, token) => {
     let tempResult = "";
 
     studies.find({ level: level.toString() }, { _id: false, link: false }, function (err, studies) {
-        console.log(studies)
+        console.log("studies : " + studies);
+
         for (let value in studies) {
+            console.log("value in for loop : " + studies[value]);
             tempResult +=
                 ("레벨 : "
                     + studies[value].level
@@ -19,6 +21,7 @@ const sendGiveStudyMessage = async (channel, level, token) => {
                     + " 링크 : "
                     + studies[value].link
                     + "\n");
+            console.log("tempResult in for loop : " + tempResult);
         }
     });
 
