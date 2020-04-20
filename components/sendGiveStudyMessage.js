@@ -23,22 +23,23 @@ const sendGiveStudyMessage = async (channel, level, token) => {
                     + "\n");
             console.log("tempResult in for loop : " + tempResult);
         }
+        const args = {
+            token: token,
+            channel: channel,
+            text: tempResult
+        };
+    
+        const result = axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
+    
+        try {
+            console.log("result : " + result.data);
+            console.log(result.data);
+        } catch (e) {
+            console.log(e);
+        }
     });
 
-    const args = {
-        token: token,
-        channel: channel,
-        text: tempResult
-    };
-
-    const result = axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
-
-    try {
-        console.log("result : " + result.data);
-        console.log(result.data);
-    } catch (e) {
-        console.log(e);
-    }
+    
 };
 
 module.exports = sendGiveStudyMessage;
