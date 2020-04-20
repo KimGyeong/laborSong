@@ -32,6 +32,13 @@ const sendMessage = async (userId, genre, token) => {
         };
 
         const result = axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
+
+        try {
+        console.log("result : " + result.data);
+        console.log(result.data);
+    } catch (e) {
+        console.log(e);
+    }
     });
 };
 
