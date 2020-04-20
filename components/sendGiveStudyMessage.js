@@ -10,7 +10,7 @@ const sendGiveStudyMessage = async (channel, level, token) => {
         console.log("studies : " + studies);
 
         for (let value in studies) {
-            console.log("value in for loop : " + value);
+            console.log("value in for loop : " + studies[value]);
             tempResult +=
                 ("레벨 : "
                     + value.level
@@ -21,6 +21,7 @@ const sendGiveStudyMessage = async (channel, level, token) => {
                     + " 링크 : "
                     + value.link
                     + "\n");
+            console.log("tempResult in for loop : " + tempResult);
         }
     });
 
