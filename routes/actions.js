@@ -18,7 +18,6 @@ const token = process.env.BOT_TOKEN;
 const actions = router.post(`/`, (req, res) => {
     const PAYLOAD_JSON = JSON.parse(req.body.payload);
     const {trigger_id, user, actions, type} = PAYLOAD_JSON;
-    const urlRegex = new RegExp(/(http(s)?:\/\/)([a-z0-9\w]+\.*)+[a-z0-9]{2,4}/gi);
 
     if (actions && actions[0].action_id.match(`add_song`)) {
         addSongOpenModal(trigger_id, token);
@@ -69,7 +68,7 @@ const actions = router.post(`/`, (req, res) => {
 
         categoryCheck(youtubeId)
             .then(function (result) {
-                if (!urlRegex.test(link) || result) {
+                if (youtubeId === null || result) {
                     const modal = {
                         "response_action": "errors",
                         "errors": {
