@@ -11,6 +11,7 @@ const addStudyOpenModal = require('../components/addStudyOpenModal');
 const giveStudyOpenModal = require('../components/giveStudyOpenModal');
 const sendAddStudyRequest = require('../components/sendAddStudyRequest');
 const sendGiveStudyMessage = require('../components/sendGiveStudyMessage');
+const getYoutubeId = require('get-youtube-id');
 
 const token = process.env.BOT_TOKEN;
 
@@ -62,7 +63,9 @@ const actions = router.post(`/`, (req, res) => {
             .selected_option
             .value;
 
-        let youtubeId = link.toString().substring(32);
+        let youtubeId = getYoutubeId(link);
+
+        console.log(youtubeId);
 
         categoryCheck(youtubeId)
             .then(function (result) {
