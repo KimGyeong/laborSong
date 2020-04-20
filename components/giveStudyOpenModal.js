@@ -28,41 +28,41 @@ const giveStudyOpenModal = async (trigger_id, token) => {
                     "action_id": "study_select_value",
                     "placeholder": {
                         "type": "plain_text",
-                        "text": "레벨을 지정해주세요.",
+                        "text": "레벨",
                         "emoji": true
                     },
                     "options": [
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "레벨 1",
+                                "text": "*Level 1*",
                                 "emoji": true
                             },
-                            "value": "레벨_1"
+                            "value": "level1"
                         },
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "레벨 2",
+                                "text": "*Level 2*",
                                 "emoji": true
                             },
-                            "value": "레벨_2"
+                            "value": "level2"
                         },
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "레벨 3",
+                                "text": "*Level 3*",
                                 "emoji": true
                             },
-                            "value": "레벨_3"
+                            "value": "level3"
                         },
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "레벨 4",
+                                "text": "*Level 4*",
                                 "emoji": true
                             },
-                            "value": "레벨_4"
+                            "value": "level4"
                         }
                     ]
                 },

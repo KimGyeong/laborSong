@@ -1,21 +1,23 @@
 const axios = require('axios');
 const qs = require('qs');
 
-const study = require('../models/study');
+const studies = require('../models/study');
 
 const sendGiveStudyMessage = async (channel, level, token) => {
     let tempResult = "";
-    study.find({level: level.toString()}, {_id:false, link: false}, function (err, studys) {
-        for (let value in studys) {
+
+    studies.find({level: level.toString()}, {_id: false, link: false}, function (err, studies) {
+        console.log(studies)
+        for (let value in studies) {
             tempResult +=
                 ("레벨 : "
-                    + studys[value].level
+                    + studies[value].level
                     + "\n"
                     + " 제목 : "
-                    + studys[value].title
+                    + studies[value].title
                     + "\n"
                     + " 링크 : "
-                    + studys[value].link
+                    + studies[value].link
                     + "\n");
         }
     });
@@ -29,6 +31,7 @@ const sendGiveStudyMessage = async (channel, level, token) => {
     const result = axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
 
     try {
+        console.log("result : " + result.data);
         console.log(result.data);
     } catch (e) {
         console.log(e);
