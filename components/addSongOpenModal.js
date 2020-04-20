@@ -6,7 +6,7 @@ const addSongOpenModal = async (trigger_id, token) => {
         "type": "modal",
         "title": {
             "type": "plain_text",
-            "text": "My App",
+            "text": "노래 등록",
             "emoji": true
         },
         "submit": {
