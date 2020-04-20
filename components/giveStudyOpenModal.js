@@ -6,7 +6,7 @@ const giveStudyOpenModal = async (trigger_id, token) => {
         "type": "modal",
         "title": {
             "type": "plain_text",
-            "text": "My App",
+            "text": "자료 추천",
             "emoji": true
         },
         "submit": {

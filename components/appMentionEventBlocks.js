@@ -3,13 +3,13 @@ const qs = require('qs');
 
 const appMentionEventBlocks = async (channel, token) => {
     const modal = [
-        {
-            "type": "section",
-            "text": {
-                "type": "mrkdwn",
-                "text": "노래를 등록하시거나, 노래를 추천해드립니다~"
-            }
-        },
+        // {
+        //     "type": "section",
+        //     "text": {
+        //         "type": "mrkdwn",
+        //         "text": "노래를 등록하시거나, 노래를 추천해드립니다~"
+        //     }
+        // },
         {
             "type":
                 "actions",
@@ -20,7 +20,7 @@ const appMentionEventBlocks = async (channel, token) => {
                         "action_id": "add_song",
                         "text": {
                             "type": "plain_text",
-                            "text": "노래 등록하기",
+                            "text": "노래 등록",
                             "emoji": true
                         },
                         "value": "click_me_123",
@@ -30,7 +30,7 @@ const appMentionEventBlocks = async (channel, token) => {
                         "action_id": "give_song",
                         "text": {
                             "type": "plain_text",
-                            "text": "노래 추천 받기",
+                            "text": "노래 추천",
                             "emoji": true
                         },
                     },
@@ -39,7 +39,7 @@ const appMentionEventBlocks = async (channel, token) => {
                         "action_id": "add_study",
                         "text": {
                             "type": "plain_text",
-                            "text": "스터디 자료 추가하기",
+                            "text": "스터디 자료 등록",
                             "emoji": true
                         },
                         "value": "click_me_123",
@@ -49,7 +49,7 @@ const appMentionEventBlocks = async (channel, token) => {
                         "action_id": "give_study",
                         "text": {
                             "type": "plain_text",
-                            "text": "스터디 자료 추천받기",
+                            "text": "스터디 자료 추천",
                             "emoji": true
                         },
                     }

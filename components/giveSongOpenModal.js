@@ -6,7 +6,7 @@ const giveSongOpenModal = async (trigger_id, token) => {
         "type": "modal",
         "title": {
             "type": "plain_text",
-            "text": "My App",
+            "text": "노래 추천",
             "emoji": true
         },
         "submit": {
@@ -47,14 +47,6 @@ const giveSongOpenModal = async (trigger_id, token) => {
                                 "emoji": true
                             },
                             "value": "quiet"
-                        },
-                        {
-                            "text": {
-                                "type": "plain_text",
-                                "text": "우울 그자체",
-                                "emoji": true
-                            },
-                            "value": "value-2"
                         }
                     ]
                 },
