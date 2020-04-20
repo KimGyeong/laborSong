@@ -7,17 +7,19 @@ const sendGiveStudyMessage = async (channel, level, token) => {
     let tempResult = "";
 
     studies.find({level: level.toString()}, {_id: false, link: false}, function (err, studies) {
-        console.log(studies)
+        console.log("studies : " + studies);
+
         for (let value in studies) {
+            console.log("value in for loop : " + value);
             tempResult +=
                 ("레벨 : "
-                    + studies[value].level
+                    + value.level
                     + "\n"
                     + " 제목 : "
-                    + studies[value].title
+                    + value.title
                     + "\n"
                     + " 링크 : "
-                    + studies[value].link
+                    + value.link
                     + "\n");
         }
     });
