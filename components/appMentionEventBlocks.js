@@ -20,7 +20,7 @@ const appMentionEventBlocks = async (channel, token) => {
                         "action_id": "add_song",
                         "text": {
                             "type": "plain_text",
-                            "text": "노래 등록",
+                            "text": ":musical_keyboard: 노래 등록",
                             "emoji": true
                         },
                         "value": "click_me_123",
@@ -30,7 +30,7 @@ const appMentionEventBlocks = async (channel, token) => {
                         "action_id": "give_song",
                         "text": {
                             "type": "plain_text",
-                            "text": "노래 추천",
+                            "text": ":musical_note: 노래 추천",
                             "emoji": true
                         },
                     },
@@ -39,7 +39,7 @@ const appMentionEventBlocks = async (channel, token) => {
                         "action_id": "add_study",
                         "text": {
                             "type": "plain_text",
-                            "text": "스터디 자료 등록",
+                            "text": ":male-technologist: 스터디 자료 등록",
                             "emoji": true
                         },
                         "value": "click_me_123",
@@ -49,7 +49,7 @@ const appMentionEventBlocks = async (channel, token) => {
                         "action_id": "give_study",
                         "text": {
                             "type": "plain_text",
-                            "text": "스터디 자료 추천",
+                            "text": ":female-technologist: 스터디 자료 추천",
                             "emoji": true
                         },
                     }
