@@ -10,34 +10,36 @@ const sendGiveStudyMessage = async (channel, level, token) => {
         console.log("studies : " + studies);
 
         for (let value in studies) {
-            console.log("value in for loop : " + value);
+            console.log("value in for loop : " + studies[value]);
             tempResult +=
                 ("레벨 : "
-                    + value.level
+                    + studies[value].level
                     + "\n"
                     + " 제목 : "
-                    + value.title
+                    + studies[value].title
                     + "\n"
                     + " 링크 : "
-                    + value.link
+                    + studies[value].link
                     + "\n");
+            console.log("tempResult in for loop : " + tempResult);
+        }
+        const args = {
+            token: token,
+            channel: channel,
+            text: tempResult
+        };
+    
+        const result = axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
+    
+        try {
+            console.log("result : " + result.data);
+            console.log(result.data);
+        } catch (e) {
+            console.log(e);
         }
     });
 
-    const args = {
-        token: token,
-        channel: channel,
-        text: tempResult
-    };
-
-    const result = axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
-
-    try {
-        console.log("result : " + result.data);
-        console.log(result.data);
-    } catch (e) {
-        console.log(e);
-    }
+    
 };
 
 module.exports = sendGiveStudyMessage;
