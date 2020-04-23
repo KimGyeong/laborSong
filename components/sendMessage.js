@@ -30,7 +30,7 @@ const sendMessage = async (userId, genre, token) => {
             text: text
         };
 
-        const result = axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
+        axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
     });
 };
 

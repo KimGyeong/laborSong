@@ -81,7 +81,11 @@ const giveStudyOpenModal = async (trigger_id, token) => {
         view: JSON.stringify(modal)
     };
 
-    const result = await axios.post(`https://slack.com/api/views.open`, qs.stringify(args));
+    try {
+        await axios.post(`https://slack.com/api/views.open`, qs.stringify(args));
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 module.exports = giveStudyOpenModal;

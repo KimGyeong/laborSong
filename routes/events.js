@@ -11,6 +11,7 @@ const events = router.post('/', (req, res) => {
     }
 
     if (req.body.event.type === 'app_mention') {
+        console.log(req.body.event.channel);
         appMentionEventBlocks(req.body.event.channel, token);
         res.json('');
     }
