@@ -11,11 +11,13 @@ var songSchema = new Schema({
     review: {type: String, required: true}
 });
 
+module.exports = mongoose.model('song', songSchema);
+
+autoIncrement.initialize(mongoose.connection);
+
 songSchema.plugin(autoIncrement.plugin, {
     model: 'song',
     field: 'no',
     startAt: 1,
     increment: 1
 });
-
-module.exports = mongoose.model('song', songSchema);
