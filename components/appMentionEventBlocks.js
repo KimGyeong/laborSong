@@ -54,8 +54,7 @@ const appMentionEventBlocks = async (channel, token) => {
     const args = {
         token: token,
         channel: channel,
-        text: "코일 바보"
-        // blocks: JSON.stringify(modal)
+        blocks: JSON.stringify(modal)
     };
     const result = await axios.post('https://slack.com/api/chat.postMessage', qs.stringify(args));
 
