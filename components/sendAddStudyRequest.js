@@ -1,7 +1,8 @@
 const studyModel = require('../models/study');
 
-const sendAddStudyRequest = async (level, title, link) => {
+const sendAddStudyRequest = async (user, level, title, link) => {
     const study = new studyModel();
+    study.user = user;
     study.level = level;
     study.title = title;
     study.link = link;

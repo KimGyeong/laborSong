@@ -102,6 +102,9 @@ const actions = router.post(`/`, (req, res) => {
         res.send({response_action: "clear"});
         // TODO : type인자 확인
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_study_block' && type === 'view_submission') {
+        const user = PAYLOAD_JSON
+            .user
+            .name;
         const level = PAYLOAD_JSON
             .view
             .state
@@ -124,7 +127,7 @@ const actions = router.post(`/`, (req, res) => {
             .add_song_link_value
             .value;
 
-        sendAddStudyRequest(level, title, link);
+        sendAddStudyRequest(user ,level, title, link);
         res.send({response_action: "clear"});
     }
 });
