@@ -2,6 +2,7 @@ const axios = require('axios');
 const qs = require('qs');
 
 const appMentionEventBlocks = async (channel, token) => {
+    console.log("함수 내 channel : " + channel);
     const modal = [
         {
             "type":
@@ -55,7 +56,9 @@ const appMentionEventBlocks = async (channel, token) => {
         text: "노래 추천 해드릴께요",
         blocks: JSON.stringify(modal)
     };
-    await axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
+    const result = await axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
+
+    console.log(result);
 };
 
 module.exports = appMentionEventBlocks;
