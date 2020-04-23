@@ -58,7 +58,8 @@ const appMentionEventBlocks = async (channel, token) => {
     };
     const result = await axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
 
-    console.log(result);
+    console.log(result.status);
+    console.log(result.statusText);
 };
 
 module.exports = appMentionEventBlocks;
