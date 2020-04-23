@@ -40,6 +40,9 @@ const actions = router.post(`/`, (req, res) => {
         sendMessage(user.id, genre, token);
         res.send({response_action: "clear"});
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_song_link_block' && type === 'view_submission') {
+        const user = PAYLOAD_JSON
+            .user
+            .username;
         const link = PAYLOAD_JSON
             .view
             .state
@@ -77,7 +80,7 @@ const actions = router.post(`/`, (req, res) => {
                     };
                     res.send(modal);
                 } else {
-                    sendAddSongRequest(link, one_sentence_review, genre);
+                    sendAddSongRequest(user, link, one_sentence_review, genre);
                     res.send({response_action: "clear"});
                 }
             });
@@ -95,7 +98,7 @@ const actions = router.post(`/`, (req, res) => {
 
         // sendGiveStudyMessage("study", level, token);
         giveStudyViewModal(trigger_id, token, level);
-        
+
         res.send({response_action: "clear"});
         // TODO : type인자 확인
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_study_block' && type === 'view_submission') {

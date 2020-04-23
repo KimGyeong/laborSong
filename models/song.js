@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var songSchema = new Schema({
     link: {type: String, required: true, unique: true},
+    user: {type: String, required: true},
     genre: {type: String, required: true},
     review: {type: String, required: true}
 });
