@@ -93,7 +93,9 @@ const actions = router.post(`/`, (req, res) => {
 
         console.log("actions level : " + level);
 
-        sendGiveStudyMessage("study", level, token);
+        // sendGiveStudyMessage("study", level, token);
+        giveStudyViewModal(trigger_id, token, level);
+        
         res.send({response_action: "clear"});
         // TODO : type인자 확인
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_study_block' && type === 'view_submission') {
