@@ -10,7 +10,6 @@ const categoryCheck = require('../utils/youtubeApi');
 const addStudyOpenModal = require('../components/addStudyOpenModal');
 const giveStudyOpenModal = require('../components/giveStudyOpenModal');
 const sendAddStudyRequest = require('../components/sendAddStudyRequest');
-const sendGiveStudyMessage = require('../components/sendGiveStudyMessage');
 const getYoutubeId = require('get-youtube-id');
 
 const token = process.env.BOT_TOKEN;
