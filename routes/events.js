@@ -12,14 +12,25 @@ const events = router.post('/', (req, res) => {
         res.json({challenge: req.body.challenge});
     }
 
-    if (req.body.event.type === 'app_mention') {
-        appMentionEventBlocks(req.body.event.channel, token);
-        res.json('');
+    switch (req.body.event.type) {
+        case 'app_mention':
+            appMentionEventBlocks(req.body.event.channel, token);
+            res.json('');
+            break;
+        case 'app_home_opened':
+            appHomeEventBlocks(req.body.event.user, token);
+            res.json('');
+            break;
     }
-    if(req.body.event.type === 'app_home_opened'){
-        appHomeEventBlocks(req.body.event.user, token);
-        res.json('');
-    }
+
+    // if (req.body.event.type === 'app_mention') {
+    //     appMentionEventBlocks(req.body.event.channel, token);
+    //     res.json('');
+    // }
+    // if(req.body.event.type === 'app_home_opened'){
+    //     appHomeEventBlocks(req.body.event.user, token);
+    //     res.json('');
+    // }
 });
 
 module.exports = events;
