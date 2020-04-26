@@ -17,7 +17,7 @@ const events = router.post('/', (req, res) => {
         res.json('');
     }
     if(req.body.event.type === 'app_home_opened'){
-        appHomeEventBlocks(req.body.event.channel, token);
+        appHomeEventBlocks(req.body.event.user, token);
         res.json('');
     }
 });

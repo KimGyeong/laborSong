@@ -1,7 +1,7 @@
 const axios = require('axios');
 const qs = require('qs');
 
-const appHomeEventBlocks = async (channel, token) => {
+const appHomeEventBlocks = async (userID, token) => {
     const modal = [
             {
                 "type":
@@ -52,13 +52,10 @@ const appHomeEventBlocks = async (channel, token) => {
     ;
     const args = {
         token: token,
-        channel: channel,
-        blocks: JSON.stringify(modal)
+        user_id: userID,
+        view: JSON.stringify(modal)
     };
-    const result = await axios.post('https://slack.com/api/views.publish', qs.stringify(args));
-
-    console.log(result.status);
-    console.log(result.statusText);
+    await axios.post('https://slack.com/api/views.publish', qs.stringify(args));
 };
 
 module.exports = appHomeEventBlocks;
