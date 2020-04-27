@@ -71,7 +71,7 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
                 },
                 {
                     "type": "section",
-                    "fields": JSON.parse(study_field)
+                    "fields": study_field
                 }
             ]
         };
@@ -86,9 +86,9 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
 
         const result = axios.post(`https://slack.com/api/views.open`, qs.stringify(args));
 
-        result.then(result =>{
-            console.log(result.error);
-            console.log(result.response_metadata);
+        result.then(response =>{
+            console.log(response);
+            //console.log(response.text());
         }
         ).catch(
             error =>
