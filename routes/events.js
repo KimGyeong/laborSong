@@ -1,26 +1,36 @@
 require('dotenv').config();
+
 const express = require('express');
 const router = express.Router();
-
-const appMentionEventBlocks = require('../components/appMentionEventBlocks');
 const token = process.env.BOT_TOKEN;
+
+const appHomeEventBlocks = require('../components/appHomeEventBlocks');
+const appMentionEventBlocks = require('../components/appMentionEventBlocks');
 
 const events = router.post('/', (req, res) => {
     if (req.body.challenge && req.body.type == "url_verification") {
         res.json({challenge: req.body.challenge});
     }
 
-    if (req.body.event.type === 'app_mention') {
-        console.log("req.body : " + JSON.stringify(req.body));
-        console.log("req.body.event : " + JSON.stringify(req.body.event));
-        console.log("channel : " + req.body.event.channel);
-        appMentionEventBlocks(req.body.event.channel, token);
-        res.json('');
+    switch (req.body.event.type) {
+        case 'app_mention':
+            appMentionEventBlocks(req.body.event.channel, token);
+            res.json('');
+            break;
+        case 'app_home_opened':
+            appHomeEventBlocks(req.body.event.user, token);
+            res.json('');
+            break;
     }
-    if(req.body.event.type === 'app_home_opened'){
-        appMentionEventBlocks(req.body.event.channel, token);
-        res.json('');
-    }
+
+    // if (req.body.event.type === 'app_mention') {
+    //     appMentionEventBlocks(req.body.event.channel, token);
+    //     res.json('');
+    // }
+    // if(req.body.event.type === 'app_home_opened'){
+    //     appHomeEventBlocks(req.body.event.user, token);
+    //     res.json('');
+    // }
 });
 
 module.exports = events;
