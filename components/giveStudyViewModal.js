@@ -5,7 +5,7 @@ const studies = require('../models/study');
 
 const giveStudyViewModal = async (trigger_id, token, level) => {
 
-    studies.find({ level: level.toString() }, { _id: false, link: false }, function (err, studies) {
+    studies.find({level: level.toString()}, {_id: false, link: false}, function (err, studies) {
         console.log("studies : " + studies);
 
         let study_field = "[";
@@ -77,14 +77,22 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
         };
 
         console.log(modal);
-    
+
         const args = {
             token: token,
             trigger_id: trigger_id,
             view: JSON.stringify(modal)
         };
-    
-        axios.post(`https://slack.com/api/views.open`, qs.stringify(args));
+
+        const result = axios.post(`https://slack.com/api/views.open`, qs.stringify(args));
+
+        result.then(result =>
+            console.log(result)
+        ).catch(
+            error =>
+                console.log(error)
+        );
+
     });
 };
 
