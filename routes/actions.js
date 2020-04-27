@@ -10,7 +10,7 @@ const categoryCheck = require('../utils/youtubeApi');
 const addStudyOpenModal = require('../components/addStudyOpenModal');
 const giveStudyOpenModal = require('../components/giveStudyOpenModal');
 const sendAddStudyRequest = require('../components/sendAddStudyRequest');
-const sendGiveStudyMessage = require('../components/sendGiveStudyMessage');
+const giveStudyViewModal = require('../components/giveStudyViewModal');
 const getYoutubeId = require('get-youtube-id');
 
 const token = process.env.BOT_TOKEN;
@@ -127,7 +127,7 @@ const actions = router.post(`/`, (req, res) => {
             .add_song_link_value
             .value;
 
-        sendAddStudyRequest(user ,level, title, link);
+        sendAddStudyRequest(user, level, title, link);
         res.send({response_action: "clear"});
     }
 });

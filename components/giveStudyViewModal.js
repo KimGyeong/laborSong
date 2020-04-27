@@ -8,7 +8,7 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
     studies.find({ level: level.toString() }, { _id: false, link: false }, function (err, studies) {
         console.log("studies : " + studies);
 
-        let study_field = "["
+        let study_field = "[";
 
         for (let value in studies) {
             textValue = (" 제목 : "
@@ -39,8 +39,8 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
             // console.log("tempResult in for loop : " + tempResult);
         }
 
-        study_fieldtempResuilt += "]"
-        
+        study_field += "]";
+
         const modal = {
             "type": "modal",
             "title": {
@@ -63,7 +63,7 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
                     "type": "section",
                     "text": {
                         "type": "mrkdwn",
-                        "text": "This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
+                        "text": "스터디 자료를 추천해줍니다!"
                     }
                 },
                 {
@@ -74,7 +74,9 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
                     "fields": study_field
                 }
             ]
-        }
+        };
+
+        console.log(modal);
     
         const args = {
             token: token,
@@ -82,7 +84,7 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
             view: JSON.stringify(modal)
         };
     
-        const result = await axios.post(`https://slack.com/api/views.open`, qs.stringify(args));
+        axios.post(`https://slack.com/api/views.open`, qs.stringify(args));
     });
 };
 
