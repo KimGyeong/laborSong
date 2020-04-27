@@ -96,6 +96,8 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
 
             result.then(response => {
                     console.log(response);
+                    console.log(response.data);
+                    console.log(response.data.response_metadata);
                 }
             ).catch(
                 error =>
