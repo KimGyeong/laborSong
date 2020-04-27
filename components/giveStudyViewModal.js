@@ -39,10 +39,37 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
             // console.log("tempResult in for loop : " + tempResult);
         }
 
-        study_field += "]";
+        study_field = "[\n" +
+            "\t\t\t\t{\n" +
+            "\t\t\t\t\t“type”: “plain_text”,\n" +
+            "\t\t\t\t\t“text”: “*this is plain_text text*“,\n" +
+            "\t\t\t\t\t“emoji”: true\n" +
+            "\t\t\t\t},\n" +
+            "\t\t\t\t{\n" +
+            "\t\t\t\t\t“type”: “plain_text”,\n" +
+            "\t\t\t\t\t“text”: “*this is plain_text text*“,\n" +
+            "\t\t\t\t\t“emoji”: true\n" +
+            "\t\t\t\t},\n" +
+            "\t\t\t\t{\n" +
+            "\t\t\t\t\t“type”: “plain_text”,\n" +
+            "\t\t\t\t\t“text”: “*this is plain_text text*“,\n" +
+            "\t\t\t\t\t“emoji”: true\n" +
+            "\t\t\t\t},\n" +
+            "\t\t\t\t{\n" +
+            "\t\t\t\t\t“type”: “plain_text”,\n" +
+            "\t\t\t\t\t“text”: “*this is plain_text text*“,\n" +
+            "\t\t\t\t\t“emoji”: true\n" +
+            "\t\t\t\t},\n" +
+            "\t\t\t\t{\n" +
+            "\t\t\t\t\t“type”: “plain_text”,\n" +
+            "\t\t\t\t\t“text”: “*this is plain_text text*“,\n" +
+            "\t\t\t\t\t“emoji”: true\n" +
+            "\t\t\t\t}\n" +
+            "\t\t\t]";
 
         const modal = {
             "type": "modal",
+
             "title": {
                 "type": "plain_text",
                 "text": "My App",
@@ -87,8 +114,8 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
         const result = axios.post(`https://slack.com/api/views.open`, qs.stringify(args));
 
         result.then(response =>{
-            console.log(response);
-            //console.log(response.text());
+            //console.log(response);
+            console.log(response.text());
         }
         ).catch(
             error =>
