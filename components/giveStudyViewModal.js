@@ -95,8 +95,7 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
             const result = axios.post(`https://slack.com/api/views.open`, qs.stringify(args));
 
             result.then(response => {
-                    //console.log(response);
-                    console.log(response.text());
+                    console.log(response);
                 }
             ).catch(
                 error =>
