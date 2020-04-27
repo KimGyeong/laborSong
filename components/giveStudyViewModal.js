@@ -8,7 +8,7 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
     studies.find({level: level.toString()}, {_id: false, link: false}, function (err, studies) {
         console.log("studies : " + studies);
 
-        let study_field = "[";
+        let study_field = "\"[";
 
         for (let value in studies) {
             textValue = (" 제목 : "
@@ -39,7 +39,7 @@ const giveStudyViewModal = async (trigger_id, token, level) => {
             // console.log("tempResult in for loop : " + tempResult);
         }
 
-        study_field += "]";
+        study_field += "]\"";
 
         const modal = {
             "type": "modal",
