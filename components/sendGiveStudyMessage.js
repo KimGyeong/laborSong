@@ -3,10 +3,10 @@ const qs = require('qs');
 
 const studies = require('../models/study');
 
-const sendGiveStudyMessage = async (channel, level, token) => {
+const sendGiveStudyMessage = (channel, level, token) => {
     let tempResult = "";
 
-    studies.find({ level: level.toString() }, { _id: false, link: false }, function (err, studies) {
+    studies.find({ level: level.toString() }, { _id: false, link: false }, async function (err, studies) {
         console.log("studies : " + studies);
 
         for (let value in studies) {
@@ -29,7 +29,7 @@ const sendGiveStudyMessage = async (channel, level, token) => {
             text: tempResult
         };
     
-        const result = axios.post(`https://slack.com/api/chat.postMessage`, qs.stringify(args));
+        const result = await axios.post('https://slack.com/api/chat.postMessage', qs.stringify(args));
     
         try {
             console.log("result : " + result.data);
@@ -38,8 +38,6 @@ const sendGiveStudyMessage = async (channel, level, token) => {
             console.log(e);
         }
     });
-
-    
 };
 
 module.exports = sendGiveStudyMessage;
