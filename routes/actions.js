@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const router = express.Router();
+const getYoutubeId = require('get-youtube-id');
 
 const addSongOpenModal = require('../components/addSongOpenModal');
 const giveSongOpenModal = require('../components/giveSongOpenModal');
@@ -11,9 +12,6 @@ const giveStudyOpenModal = require('../components/giveStudyOpenModal');
 const sendAddStudyRequest = require('../components/sendAddStudyRequest');
 const giveStudyViewModal = require('../components/giveStudyViewModal');
 const giveSongViewModal = require('../components/giveSongViewModal');
-
-
-const getYoutubeId = require('get-youtube-id');
 
 const token = process.env.BOT_TOKEN;
 

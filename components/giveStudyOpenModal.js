@@ -82,7 +82,7 @@ const giveStudyOpenModal = async (trigger_id, token) => {
     };
 
     try {
-        await axios.post(`https://slack.com/api/views.open`, qs.stringify(args));
+        await axios.post('https://slack.com/api/views.open', qs.stringify(args));
     } catch (e) {
         console.log(e);
     }
