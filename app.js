@@ -13,9 +13,6 @@ app.use(bodyParser.json());
 // [CONFIGURE SERVER PORT]
 const port = process.env.PORT || 3000;
 
-// DEFINE MODEL
-const song = require('./models/song');
-
 // [CONFIGURE ROUTER]
 const routes = require('./routes/routes');
 
@@ -39,3 +36,4 @@ db.once('open', function () {
 mongoose.connect(process.env.MONGODB_URI);
 
 // node schedule
+const sendGiveStudyMessageJob = require('./utils/schedules');
