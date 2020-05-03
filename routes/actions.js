@@ -4,13 +4,14 @@ const router = express.Router();
 
 const addSongOpenModal = require('../components/addSongOpenModal');
 const giveSongOpenModal = require('../components/giveSongOpenModal');
-const sendMessage = require('../components/sendMessage');
 const sendAddSongRequest = require('../components/sendAddSongRequest');
 const categoryCheck = require('../utils/youtubeApi');
 const addStudyOpenModal = require('../components/addStudyOpenModal');
 const giveStudyOpenModal = require('../components/giveStudyOpenModal');
 const sendAddStudyRequest = require('../components/sendAddStudyRequest');
 const giveStudyViewModal = require('../components/giveStudyViewModal');
+const giveSongViewModal = require('../components/giveSongViewModal');
+
 
 const getYoutubeId = require('get-youtube-id');
 
@@ -20,7 +21,7 @@ const actions = router.post(`/`, (req, res) => {
     const PAYLOAD_JSON = JSON.parse(req.body.payload);
     const {trigger_id, user, actions, type} = PAYLOAD_JSON;
 
-    if (actions && actions[0].action_id.match(`add_song`)) {
+    if (actions && actions[0].action_id.match('add_song')) {
         addSongOpenModal(trigger_id, token);
     } else if (actions && actions[0].action_id.match('give_song')) {
         giveSongOpenModal(trigger_id, token);
@@ -38,8 +39,8 @@ const actions = router.post(`/`, (req, res) => {
             .selected_option
             .value;
 
-        sendMessage(user.id, genre, token);
-        res.send({response_action: "clear"});
+        giveSongViewModal(trigger_id, token, genre);
+        // res.send({response_action: "clear"});
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_song_link_block' && type === 'view_submission') {
         const user = PAYLOAD_JSON
             .user
