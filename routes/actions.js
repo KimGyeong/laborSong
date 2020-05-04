@@ -38,8 +38,7 @@ const actions = router.post(`/`, (req, res) => {
             .value;
 
         giveSongViewModal(trigger_id, token, genre);
-        console.log(status.ok);
-        res.sendStatus(status.ok);
+        res.send();
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_song_link_block' && type === 'view_submission') {
         const user = PAYLOAD_JSON
             .user
