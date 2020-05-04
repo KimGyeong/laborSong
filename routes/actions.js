@@ -38,7 +38,8 @@ const actions = router.post(`/`, async (req, res) => {
             .value;
 
         await giveSongViewModal(trigger_id, token, genre);
-        res.send({'status' : 200, 'message' : ''});
+        console.log(status.ok);
+        res.sendStatus(status.ok);
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_song_link_block' && type === 'view_submission') {
         const user = PAYLOAD_JSON
             .user
