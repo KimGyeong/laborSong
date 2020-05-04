@@ -28,7 +28,7 @@ const actions = router.post(`/`, async (req, res) => {
     } else if (actions && actions[0].action_id.match('give_study')) {
         giveStudyOpenModal(trigger_id, token);
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'songSelect' && type === 'view_submission') {
-        const genre = PAYLOAD_JSON
+        const genre = PAYLOAD_JSONx
             .view
             .state
             .values
@@ -38,7 +38,7 @@ const actions = router.post(`/`, async (req, res) => {
             .value;
 
         await giveSongViewModal(trigger_id, token, genre);
-        res.sendStatus(status.ok);
+        res.send({'status' : 200, 'message' : ''});
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_song_link_block' && type === 'view_submission') {
         const user = PAYLOAD_JSON
             .user

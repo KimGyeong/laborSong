@@ -11,7 +11,7 @@ const events = router.post('/', (req, res) => {
     if (req.body.challenge && req.body.type == "url_verification") {
         res.json({challenge: req.body.challenge});
     }
-    console.log(req.body.event.type);
+
     switch (req.body.event.type) {
         case 'app_mention':
             appMentionEventBlocks(req.body.event.channel, token);
