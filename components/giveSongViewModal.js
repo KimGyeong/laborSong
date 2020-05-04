@@ -76,6 +76,7 @@ const giveSongViewModal = async (trigger_id, token, genre) => {
 
         console.log(result.data);
         console.log(result.data.response_metadata);
+        return result.data;
     });
 };
 
