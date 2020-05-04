@@ -2,7 +2,6 @@ const axios = require('axios');
 const qs = require('qs');
 
 const appMentionEventBlocks = async (channel, token) => {
-    console.log("함수 내 channel : " + channel);
     const modal = [
             {
                 "type":

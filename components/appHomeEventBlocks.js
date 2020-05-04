@@ -2,10 +2,19 @@ const axios = require('axios');
 const qs = require('qs');
 
 const appHomeEventBlocks = async (userID, token) => {
-    const modal = [
+    const modal = {
+        "type": "home",
+        "blocks": [
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "슬랙봇"
+                }
+            },
             {
                 "type":
-                    "home",
+                    "actions",
                 "elements":
                     [
                         {
@@ -48,14 +57,22 @@ const appHomeEventBlocks = async (userID, token) => {
                         }
                     ]
             }
+
         ]
-    ;
+    };
+
     const args = {
         token: token,
         user_id: userID,
         view: JSON.stringify(modal)
     };
-    await axios.post('https://slack.com/api/views.publish', qs.stringify(args));
+
+    const result = await axios.post('https://slack.com/api/views.publish', qs.stringify(args));
+
+    console.log(result.status);
+    console.log(result.statusText);
+
+    console.log(result.data.response_metadata);
 };
 
 module.exports = appHomeEventBlocks;

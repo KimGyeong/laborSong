@@ -99,7 +99,7 @@ const addSongOpenModal = async (trigger_id, token) => {
         view: JSON.stringify(modal)
     };
 
-    const result = await axios.post(`https://slack.com/api/views.open`, qs.stringify(args));
+    const result = await axios.post('https://slack.com/api/views.open', qs.stringify(args));
 };
 
 module.exports = addSongOpenModal;
