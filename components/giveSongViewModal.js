@@ -4,7 +4,7 @@ const qs = require('qs');
 const songs = require('../models/song');
 const shuffle = require('../utils/shuffle');
 
-const giveSongViewModal = (trigger_id, token, genre) => {
+const giveSongViewModal = async (trigger_id, token, genre) => {
     songs.find({genre: genre.toString()}, {_id: false, genre: false}, async function (error, songs) {
 
         shuffle(songs);

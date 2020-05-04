@@ -15,7 +15,7 @@ const giveSongViewModal = require('../components/giveSongViewModal');
 
 const token = process.env.BOT_TOKEN;
 
-const actions = router.post(`/`, (req, res) => {
+const actions = router.post(`/`, async (req, res) => {
     const PAYLOAD_JSON = JSON.parse(req.body.payload);
     const {trigger_id, user, actions, type} = PAYLOAD_JSON;
 
@@ -37,7 +37,7 @@ const actions = router.post(`/`, (req, res) => {
             .selected_option
             .value;
 
-        giveSongViewModal(trigger_id, token, genre);
+        await giveSongViewModal(trigger_id, token, genre);
         res.sendStatus(status.ok);
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_song_link_block' && type === 'view_submission') {
         const user = PAYLOAD_JSON
