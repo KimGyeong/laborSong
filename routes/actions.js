@@ -28,7 +28,7 @@ const actions = router.post(`/`, async (req, res) => {
     } else if (actions && actions[0].action_id.match('give_study')) {
         giveStudyOpenModal(trigger_id, token);
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'songSelect' && type === 'view_submission') {
-        const genre = PAYLOAD_JSONx
+        const genre = PAYLOAD_JSON
             .view
             .state
             .values
