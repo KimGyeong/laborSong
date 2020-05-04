@@ -38,7 +38,7 @@ const actions = router.post(`/`, (req, res) => {
             .value;
 
         giveSongViewModal(trigger_id, token, genre);
-        // res.send({response_action: "clear"});
+        res.send('');
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_song_link_block' && type === 'view_submission') {
         const user = PAYLOAD_JSON
             .user
@@ -67,8 +67,6 @@ const actions = router.post(`/`, (req, res) => {
 
         let youtubeId = getYoutubeId(link);
 
-        console.log(youtubeId);
-
         categoryCheck(youtubeId)
             .then(function (result) {
                 if (youtubeId === null || result) {
@@ -93,8 +91,9 @@ const actions = router.post(`/`, (req, res) => {
             .study_select_value
             .selected_option
             .value;
-        console.log("actions level : " + level);
+
         giveStudyViewModal(trigger_id, token, level);
+        res.send('');
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_study_block' && type === 'view_submission') {
         const user = PAYLOAD_JSON
             .user
