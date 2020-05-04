@@ -37,7 +37,7 @@ const actions = router.post(`/`, (req, res) => {
             .selected_option
             .value;
 
-        await giveSongViewModal(trigger_id, token, genre);
+        giveSongViewModal(trigger_id, token, genre);
         console.log(status.ok);
         res.sendStatus(status.ok);
     } else if (JSON.parse(req.body.payload).view.blocks[0].block_id === 'add_song_link_block' && type === 'view_submission') {
