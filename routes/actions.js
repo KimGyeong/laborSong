@@ -15,7 +15,7 @@ const giveSongViewModal = require('../components/giveSongViewModal');
 
 const token = process.env.BOT_TOKEN;
 
-const actions = router.post(`/`, async (req, res) => {
+const actions = router.post(`/`, (req, res) => {
     const PAYLOAD_JSON = JSON.parse(req.body.payload);
     const {trigger_id, user, actions, type} = PAYLOAD_JSON;
 
